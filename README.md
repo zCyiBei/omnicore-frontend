@@ -2,13 +2,14 @@
 
 ## Screenshots
 
-* **Metabolic Calculator (BMR / TDEE tracking & macro estimation)**
+
+* * **Exercise Library
 <img width="2463" height="1438" alt="image" src="https://github.com/user-attachments/assets/5ba03e8e-e56c-47aa-a0e5-c56acade3c2c" />
 
-* **Nutritional Search Engine
+* **Metabolic Calculator (BMR / TDEE tracking & macro estimation)**
 <img width="2469" height="1448" alt="image" src="https://github.com/user-attachments/assets/822ff009-d681-4100-b87f-8b9de89a219e" />
 
-* **Exercise Library
+* **Nutritional Search Engine
 <img width="2465" height="1445" alt="image" src="https://github.com/user-attachments/assets/5acfca00-412d-4e9f-8157-0cc2c2c88460" />
 
 * **Diet Planner
