@@ -1,3 +1,108 @@
+<script setup>
+import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const name = ref('')
+const age = ref(0)
+const weight = ref(0)
+const height = ref(0)
+const gender = ref('')
+const activityLevel = ref('')
+
+const tmb = ref(null)
+const tdee = ref(null)
+const resultType = ref('tdee')
+
+const targetCalories = ref()
+const finalCaloriesResult = ref(null)
+
+const router = useRouter()
+
+const validateAge = (age) => age >= 1 && age <= 120
+const validateWeight = (weight) => weight >= 30 && weight <= 300
+const validateHeight = (height) => height >= 120 && height <= 250
+
+const calculateTMB = () => {
+    if (gender.value === 'male') {
+        return 88.362 + (13.397 * weight.value) + (4.799 * height.value) - (5.677 * age.value)
+    } else {
+        return 447.593 + (9.247 * weight.value) + (3.098 * height.value) - (4.330 * age.value)
+    }
+}
+
+const calculateTDEE = () => {
+    const tmbValue = calculateTMB()
+    const activityFactor = parseFloat(activityLevel.value) || 1
+    return Math.floor(tmbValue * activityFactor)
+}
+
+const calculateProteinIntake = () => {
+    return Math.round(0.8 * weight.value)
+}
+
+const saveToProfile = () => {
+    const userData = {
+        name: name.value.trim() || 'Atleta Anónimo',
+        age: age.value,
+        weight: weight.value,
+        height: height.value,
+        tmb: tmb.value,
+        kcal: tdee.value,
+        protein: proteinIntake.value,
+        goal: resultType.value,
+        adjustment: targetCalories.value,
+        finalCalories: resultType.value === 'deficit' ? tdee.value - targetCalories.value : tdee.value + targetCalories.value
+    }
+
+    localStorage.setItem('omnicore_profile', JSON.stringify(userData));
+
+    router.push({ name: 'Profile' })
+}
+
+const calculate = () => {
+    if (!name.value.trim() || !age.value || !weight.value || !height.value || !gender.value || !activityLevel.value || !targetCalories.value || targetCalories.value <= 0) {
+        alert('Por favor, rellene todos los campos con valores mayores a cero antes de continuar.');
+        return;
+    }
+
+    if (!name.value.trim() || !age.value || !weight.value || !height.value || !gender.value || !activityLevel.value || !targetCalories.value || targetCalories.value <= 0) {
+        alert('Por favor, rellene todos los campos con valores mayores a cero antes de continuar.');
+        return;
+    }
+
+    const regexLetras = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    if (!regexLetras.test(name.value.trim())) {
+        alert('Por favor, ingrese un nombre válido que contenga únicamente letras.');
+        return;
+    }
+
+    if (targetCalories.value < 300) {
+        alert('Por favor, ingrese un margen calórico de ajuste de al menos 300 kcal para que el plan sea eficiente.');
+        return;
+    }
+
+    if (validateAge(age.value) && validateWeight(weight.value) && validateHeight(height.value)) {
+        tmb.value = Math.floor(calculateTMB())
+        tdee.value = calculateTDEE()
+        
+        if (resultType.value === 'deficit') {
+            const total = tdee.value - targetCalories.value
+            finalCaloriesResult.value = `Objetivo de Déficit: ${total} kcal/día (-${targetCalories.value} kcal)`
+        } else if (resultType.value === 'surplus') {
+            const total = tdee.value + targetCalories.value
+            finalCaloriesResult.value = `Objetivo de Superávit: ${total} kcal/día (+${targetCalories.value} kcal)`
+        }
+    } else {
+        tmb.value = null
+        tdee.value = null
+        finalCaloriesResult.value = null
+        alert('Por favor, ingrese valores válidos dentro de los rangos (Edad: 1-120, Peso: 1-300, Altura: 50-250).')
+    }
+}
+
+const proteinIntake = computed(calculateProteinIntake)
+</script>
+
 <template>
 	<div class="w-full space-y-6">
 		<div class="bg-base-100 p-6 rounded-2xl border border-dashed border-base-content/20 shadow-md">
