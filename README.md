@@ -1,12 +1,12 @@
 # Omnicore Frontend v0.1 (Alpha Testing)
 
 <p align="center">
-	<img src="https://shields.io" alt="Vue 3" />
-	<img src="https://shields.io" alt="Vite" />
-	<img src="https://shields.io" alt="JavaScript" />
-	<img src="https://shields.io" alt="Tailwind CSS" />
-	<img src="https://shields.io" alt="DaisyUI" />
-	<img src="https://shields.io" alt="HTML5" />
+  <img src="https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D" alt="Vue 3" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=FFD62E" alt="Vite" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=000000" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=FFFFFF" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/DaisyUI-1AD1A5?style=for-the-badge&logo=daisyui&logoColor=FFFFFF" alt="DaisyUI" />
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=FFFFFF" alt="HTML5" />
 </p>
 
 ## Screenshots
