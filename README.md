@@ -1,5 +1,14 @@
 # Omnicore Frontend v0.1 (Alpha Testing)
 
+<p align="center">
+	<img src="https://shields.io" alt="Vue 3" />
+	<img src="https://shields.io" alt="Vite" />
+	<img src="https://shields.io" alt="JavaScript" />
+	<img src="https://shields.io" alt="Tailwind CSS" />
+	<img src="https://shields.io" alt="DaisyUI" />
+	<img src="https://shields.io" alt="HTML5" />
+</p>
+
 ## Screenshots
 
 * **Exercise Library**
