@@ -170,12 +170,16 @@ const deleteRoutinePlan = (routineId, routineName) => {
                     <li 
                         v-for="ex in routine.exercises" 
                         :key="ex.id" 
-                        class="flex items-center justify-between p-3 bg-base-200/50 rounded-xl text-sm font-medium border border-base-300/30">
-                        <span class="text-base-content font-semibold">{{ ex.name }}</span>
-                        <div class="flex items-center gap-4">
-                            <div class="flex gap-3 text-xs font-bold text-base-content/60 font-mono">
+                        class="flex items-center justify-between gap-5 p-3 bg-base-200/50 rounded-xl text-sm font-medium border border-base-300/30">
+
+                        <span class="text-base-content font-semibold flex-1 min-w-0">
+                            {{ ex.name }}
+                        </span>
+
+                        <div class="flex items-center gap-4 shrink-0">
+                            <div class="flex items-center gap-2 text-xs font-bold text-base-content/60 font-mono whitespace-nowrap">
                                 <span>{{ ex.series || 3 }}s</span>
-                                <span>x</span>
+                                <span class="text-base-content/30">×</span>
                                 <span>{{ ex.reps || 10 }}r</span>
                             </div>
                             
